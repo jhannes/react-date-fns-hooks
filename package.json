@@ -4,7 +4,7 @@
   "description": "Automatically updated date-fns values in React through hooks and components",
   "main": "index.js",
   "scripts": {
-    "prepare": "install-peers",
+    "prepare": "npm-install-peers",
     "test": "jest",
     "format": "prettier --write src __tests__ package.json",
     "lint": "eslint src",
