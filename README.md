@@ -69,7 +69,9 @@ ReactDOM.render(
 
 ```tsx
 import * as React from "react";
+import {ReactElement} from "react";
 import ReactDOM from "react-dom";
+import {act} from "react-dom/test-utils";
 
 async function render(component: ReactElement) {
     const container = document.createElement("div");
