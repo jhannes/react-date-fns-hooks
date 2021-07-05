@@ -94,6 +94,7 @@ export function useDateFunction<T>(
     }
     scheduleTimer();
     return () => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       clearTimeout(timer.current!);
     };
   }, []);
