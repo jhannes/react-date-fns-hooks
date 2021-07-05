@@ -1,13 +1,21 @@
 {
   "name": "react-date-fns-hooks",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.9.0",
+  "description": "Automatically updated date-fns values in React through hooks and components",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "react-native",
+    "date-fns",
+    "time",
+    "relative time",
+    "time ago",
+    "time distance"
+  ],
+  "author": "Johannes Brodwall <johannes@brodwall.com>",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.3.5"
