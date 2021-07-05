@@ -1,6 +1,8 @@
 react-date-fns-hooks
 ====================
 
+[![Node.js CI](https://github.com/jhannes/react-date-fns-hooks/actions/workflows/node.yml/badge.svg)](https://github.com/jhannes/react-date-fns-hooks/actions/workflows/node.yml)
+
 ### Installing
 
 `npm install --save date-fns react-date-fns-hooks`

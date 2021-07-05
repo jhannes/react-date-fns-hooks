@@ -4,11 +4,14 @@
   "description": "Automatically updated date-fns values in React through hooks and components",
   "main": "index.js",
   "scripts": {
+    "build": "npm run check && npm run build:typescript",
     "prepare": "npm-install-peers",
+    "build:typescript": "tsc --outDir dist/",
     "test": "jest",
     "format": "prettier --write src __tests__ package.json",
     "lint": "eslint src",
-    "check": "npm run format && tsc --noEmit && npm run lint"
+    "check": "npm run format && tsc --noEmit && npm run lint",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "react",
@@ -20,6 +23,10 @@
     "time distance"
   ],
   "author": "Johannes Brodwall <johannes@brodwall.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhannes/react-date-fns-hooks"
+  },
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.23",
