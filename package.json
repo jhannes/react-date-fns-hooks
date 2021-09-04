@@ -12,7 +12,9 @@
     "lint": "eslint src",
     "clean": "rimraf dist/",
     "check": "npm run format && tsc --noEmit && npm run lint",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "npm run clean && npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "react",
@@ -30,11 +32,17 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-links": "^6.3.2",
+    "@storybook/react": "^6.3.2",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
+    "babel-loader": "^8.2.2",
     "eslint": "^7.30.0",
     "eslint-plugin-react": "^7.24.0",
     "jest": "^27.0.6",
