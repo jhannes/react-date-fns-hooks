@@ -42,7 +42,7 @@ describe("React date-fns", () => {
     expect(container.querySelector("time")?.innerHTML).toEqual("in 5 months");
   });
 
-  it("formats distance strict", async () => {
+  it("formats relative", async () => {
     const container = await render(
       <DateFnsProvider baseDate={baseDate}>
         <FormatRelative date={add(baseDate, { days: 2 })} weekStartsOn={1} />
@@ -51,5 +51,29 @@ describe("React date-fns", () => {
     expect(container.querySelector("time")?.innerHTML).toEqual(
       "Wednesday at 12:00 AM"
     );
+  });
+
+  it("updates text every second if the time difference is low", (done) => {
+    const asyncTestExecutor = async () => {
+      const base = new Date();
+      const container = await render(
+        <DateFnsProvider>
+          <FormatDistanceStrict
+            date={add(base, { seconds: 5 })}
+            addSuffix={true}
+          />
+        </DateFnsProvider>
+      );
+      expect(container.querySelector("time")?.innerHTML).toEqual(
+        "in 5 seconds"
+      );
+      setTimeout(() => {
+        expect(container.querySelector("time")?.innerHTML).toEqual(
+          "in 4 seconds"
+        );
+        done();
+      }, 1100);
+    };
+    asyncTestExecutor();
   });
 });

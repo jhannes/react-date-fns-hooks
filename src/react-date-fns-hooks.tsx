@@ -49,13 +49,14 @@ export function DateFnsProvider({
  * React state. The frequency of the calculation depends on the difference
  * between the `date` argument and the `baseDate` (default: current date).
  * When the date is close to now, the `calculation` recalculates more
- * frequently. At most calls `calculation` about once per second
+ * frequently. At most calls `calculation` about once per second. If
+ * `baseDate` is provided, the value is only calculated once and never update.
  *
  * @param date The date used for date-fns calculations. Passed to calculation
  * @param calculation A function used to calculate the target value
  *  The calculation is passed the `date`, a `baseDate` and the `locale`
- * @param opts `date` and `locale` used to override the context or current
- *  date (optional)
+ * @param opts `baseDate` and `locale` used to override the context or current
+ *  date (optional). If `baseDate` is provided, the result is never updated
  */
 export function useDateFunction<T>(
   date: DateLike,
@@ -73,6 +74,12 @@ export function useDateFunction<T>(
     );
   }
 
+  /**
+   * Returns the delay before next update based on the difference between
+   * the `baseDate` and `date` value. If less than 30 seconds, update every
+   * second, if less than 2 minutes, update every 2 seconds, otherwise
+   * update every minute. These rules are subject to change
+   */
   function delay(date: DateLike) {
     const baseDate = opts.baseDate || context.baseDate || new Date();
     const seconds = Math.abs(
@@ -191,11 +198,11 @@ export function FormatDistanceStrict({
 }
 
 /**
- * Calls the `formatDistanceStrict` function from date-fns periodically, updating
+ * Calls the `formatRelative` function from date-fns periodically, updating
  * the returned value when needed
  *
- * @param date value passed to date-fns `formatDistance`
- * @param options `weekStartsOn` and `locale`. Passed to `formatDistanceStrict`
+ * @param date value passed to date-fns `formatRelative`
+ * @param options `weekStartsOn` and `locale`. Passed to `formatRelative`
  */
 export function useFormatRelative(
   date: DateLike,
