@@ -148,7 +148,7 @@ export function FormatDistance({
     addSuffix,
     includeSeconds,
   });
-  return <time dateTime={new Date(date).toString()}>{text}</time>;
+  return <time dateTime={new Date(date).toISOString()}>{text}</time>;
 }
 
 /**
@@ -194,7 +194,7 @@ export function FormatDistanceStrict({
     unit,
     roundingMethod,
   });
-  return <time dateTime={new Date(date).toString()}>{text}</time>;
+  return <time dateTime={new Date(date).toISOString()}>{text}</time>;
 }
 
 /**
@@ -229,5 +229,5 @@ export function FormatRelative({
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }) {
   const text = useFormatRelative(date, { locale, weekStartsOn });
-  return <time dateTime={new Date(date).toString()}>{text}</time>;
+  return <time dateTime={new Date(date).toISOString()}>{text}</time>;
 }
