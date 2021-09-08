@@ -130,7 +130,7 @@ export function useFormatDistance(
 }
 
 /**
- * Returns a <time> component with the formatted distance to the specified date
+ * Returns a &lt;time&gt; component with the formatted distance to the specified date
  */
 export function FormatDistance({
   date,
@@ -173,7 +173,7 @@ export function useFormatDistanceStrict(
 }
 
 /**
- * Returns a <time> component with the strict formatted distance to the specified date
+ * Returns a &lt;time&gt; component with the strict formatted distance to the specified date
  */
 export function FormatDistanceStrict({
   date,
@@ -217,7 +217,7 @@ export function useFormatRelative(
 }
 
 /**
- * Returns a <time> component with the formatted relative to the specified date
+ * Returns a &lt;time&gt; component with the formatted relative to the specified date
  */
 export function FormatRelative({
   date,
