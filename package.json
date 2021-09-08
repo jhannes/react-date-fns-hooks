@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run check && npm run build:typescript",
     "prepare": "npm-install-peers",
-    "build:typescript": "tsc --outDir dist/",
+    "build:typescript": "tsc -p tsconfig-build.json --outDir dist/",
     "test": "jest",
     "format": "prettier --write src __tests__ package.json",
     "lint": "eslint src",

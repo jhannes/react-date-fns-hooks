@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "outDir": "./dist",
+  /* Redirect output structure to the directory. */
+  "exclude": [
+    "__tests__/**/*"
+  ]
+}
