@@ -3,6 +3,7 @@ react-date-fns-hooks
 
 [![Node.js CI](https://github.com/jhannes/react-date-fns-hooks/actions/workflows/node.yml/badge.svg)](https://github.com/jhannes/react-date-fns-hooks/actions/workflows/node.yml)
 [![Storybook](./storybook-badge.svg)](https://jhannes.github.io/react-date-fns-hooks/)
+[![npm package](https://img.shields.io/npm/v/react-date-fns-hooks.svg)](https://www.npmjs.com/package/react-date-fns-hooks)
 
 
 [See it in action](https://jhannes.github.io/react-date-fns-hooks/)
