@@ -34,7 +34,7 @@ hooks `useFormatRelative`, `useFormatDistance`, `useFormatDistanceStrict` and
 ```tsx
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {FormatRelative} from "react-date-fns-hooks";
+import {useFormatRelative} from "react-date-fns-hooks";
 
 function Demo({date}: { date: Date }) {
     const time = useFormatRelative(date, {
@@ -54,7 +54,7 @@ ReactDOM.render(
 ```tsx
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {FormatRelative} from "react-date-fns-hooks";
+import {useFormatRelative} from "react-date-fns-hooks";
 import nb from "date-fns/locale/nb";
 
 function Demo({date}: { date: Date }) {
