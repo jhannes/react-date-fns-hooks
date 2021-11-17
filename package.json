@@ -10,9 +10,10 @@
     "test": "jest",
     "format": "prettier --write src __tests__ package.json",
     "lint": "eslint src",
-    "clean": "rimraf dist/",
+    "clean": "rimraf dist/ docs/ coverage/",
     "check": "npm run format && tsc --noEmit && npm run lint",
     "prepublishOnly": "npm run clean && npm run build",
+    "docs": "typedoc && build-storybook --output-dir docs/storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static"
@@ -52,6 +53,7 @@
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.3",
+    "typedoc": "^0.22.9",
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
