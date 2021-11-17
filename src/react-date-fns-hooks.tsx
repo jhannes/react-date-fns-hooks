@@ -22,19 +22,18 @@ const DateFnsContext = React.createContext<{
 }>({});
 
 /**
- * A React Context for date-fns functionality
- *
- * @param locale The default locale used to format dates
- * @param baseDate The date used for comparison with relative dates. Useful to set for tests
- * @param children React contents
+ * A React Context for date-fns functionality. Used to override locale and to set the baseDate for testing purposes.
  */
 export function DateFnsProvider({
   locale,
   baseDate,
   children,
 }: {
+  /** The default locale used to format dates */
   locale?: Locale;
+  /**  date used for comparison with relative dates. Useful to set for tests */
   baseDate?: DateLike;
+  /** React contents */
   children: ReactNode;
 }) {
   return (
@@ -131,23 +130,17 @@ export function useFormatDistance(
 
 /**
  * Returns a &lt;time&gt; component with the formatted distance to the specified date
+ *
+ * @param options `date`, `includeSeconds`, `addSuffix` and `locale`. Passed to `formatDistance`
  */
-export function FormatDistance({
-  date,
-  locale,
-  addSuffix,
-  includeSeconds,
-}: {
+export function FormatDistance(options: {
   date: DateLike;
   includeSeconds?: boolean;
   addSuffix?: boolean;
   locale?: Locale;
 }) {
-  const text = useFormatDistance(date, {
-    locale,
-    addSuffix,
-    includeSeconds,
-  });
+  const { date, locale, addSuffix, includeSeconds } = options;
+  const text = useFormatDistance(date, { locale, addSuffix, includeSeconds });
   return <time dateTime={new Date(date).toISOString()}>{text}</time>;
 }
 
@@ -174,20 +167,18 @@ export function useFormatDistanceStrict(
 
 /**
  * Returns a &lt;time&gt; component with the strict formatted distance to the specified date
+ *
+ * @param options `date`, `addSuffix`, `unit`, `roundingMethod` and `locale`. Passed to `formatDistanceStrict`
  */
-export function FormatDistanceStrict({
-  date,
-  locale,
-  addSuffix,
-  unit,
-  roundingMethod,
-}: {
+export function FormatDistanceStrict(options: {
   date: DateLike;
   addSuffix?: boolean;
   unit?: "second" | "minute" | "hour" | "day" | "month" | "year";
   roundingMethod?: "floor" | "ceil" | "round";
   locale?: Locale;
 }) {
+  const { date, locale, addSuffix, unit, roundingMethod } = options;
+
   const text = useFormatDistanceStrict(date, {
     locale,
     addSuffix,
@@ -218,16 +209,15 @@ export function useFormatRelative(
 
 /**
  * Returns a &lt;time&gt; component with the formatted relative to the specified date
+ *
+ * @param options `date`, `weekStartsOn` and `locale`. Passed to `formatRelative`
  */
-export function FormatRelative({
-  date,
-  locale,
-  weekStartsOn,
-}: {
+export function FormatRelative(options: {
   date: DateLike;
   locale?: Locale;
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }) {
+  const { date, locale, weekStartsOn } = options;
   const text = useFormatRelative(date, { locale, weekStartsOn });
   return <time dateTime={new Date(date).toISOString()}>{text}</time>;
 }
