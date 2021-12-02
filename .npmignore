@@ -3,4 +3,12 @@
 /node_modules/
 /coverage/
 /storybook-static/
+/.storybook
+/__tests__
+/.github
 /docs/
+/.eslintrc.js
+/jest.config.js
+/tsconfig*.json
+/typedoc.json
+
