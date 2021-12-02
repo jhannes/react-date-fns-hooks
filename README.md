@@ -101,3 +101,6 @@ it("formats relative time", async () => {
 ```
 
 
+# Development notes
+
+To release, update the version number in package.json and run `npm run clean && npm run build && npm publish`

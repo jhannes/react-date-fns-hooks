@@ -1,6 +1,6 @@
 {
   "name": "react-date-fns-hooks",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Automatically updated date-fns values in React through hooks and components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
