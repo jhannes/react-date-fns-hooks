@@ -63,11 +63,13 @@ export function useDateFunction<T>(
   opts: { baseDate?: DateLike; locale?: Locale } = {}
 ): T {
   useDebugValue(date, (date) => new Date(date).toISOString());
+  const currDate = useRef(date);
+  currDate.current = date;
   const context = useContext(DateFnsContext);
 
   function calculateValue() {
     return calculation(
-      new Date(date),
+      new Date(currDate.current),
       new Date(opts.baseDate || context.baseDate || new Date()),
       opts.locale || context.locale
     );
