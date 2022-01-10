@@ -16,7 +16,7 @@ import {
 
 type DateLike = Date | number | string;
 
-const DateFnsContext = React.createContext<{
+export const DateFnsContext = React.createContext<{
   locale?: Locale;
   baseDate?: DateLike;
 }>({});
