@@ -8,12 +8,13 @@ import { add } from "date-fns";
 import { act } from "react-dom/test-utils";
 import * as React from "react";
 import { ReactElement } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+
 
 async function render(component: ReactElement) {
   const container = document.createElement("div");
   await act(async () => {
-    ReactDOM.render(component, container);
+    createRoot(container).render(component);
   });
   return container;
 }
@@ -53,8 +54,7 @@ describe("React date-fns", () => {
     );
   });
 
-  it("updates text every second if the time difference is low", (done) => {
-    const asyncTestExecutor = async () => {
+  it("updates text every second if the time difference is low", async () => {
       const base = new Date();
       const container = await render(
         <DateFnsProvider>
@@ -67,13 +67,13 @@ describe("React date-fns", () => {
       expect(container.querySelector("time")?.innerHTML).toEqual(
         "in 5 seconds"
       );
-      setTimeout(() => {
-        expect(container.querySelector("time")?.innerHTML).toEqual(
-          "in 4 seconds"
-        );
-        done();
-      }, 1100);
-    };
-    asyncTestExecutor();
+      await act(async () => {
+        new Promise((res) => {
+          setTimeout(() => {
+            expect(container.querySelector('time')?.innerHTML).toEqual('in 4 seconds');
+            res(undefined);
+          }, 1100);
+        });
+      });
   });
 });
